@@ -18,7 +18,9 @@
             <%= link_to "Messages", "#", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to cl_image_tag current_user.image.key, class: "avatar" %>
+            <%= link_to user_path(current_user.id) do %>
+              <%= cl_image_tag current_user.image.key, class: "avatar" %>
+            <% end %>
           </li>
         <% else %>
           <li class="nav-item">
