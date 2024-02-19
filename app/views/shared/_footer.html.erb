@@ -1,0 +1,31 @@
+
+<div class="footer-page">
+  <div class="footer-items">
+    <div class="footer-items active">
+      <%= link_to root_path, class: "nav-link" do %>
+        <i class="fa-solid fa-house"></i>
+      <% end %>
+    </div>
+    <% if user_signed_in? %>
+      <div class="footer-items active">
+        <%= link_to "#", class: "nav-link" do %>
+          <i class="fa-solid fa-wine-bottle"></i>
+        <% end %>
+      </div>
+      <div class="footer-items">
+        <%= link_to "#", class: "nav-link" do %>
+          <i class="fa-solid fa-message"></i>
+        <% end %>
+      </div>
+      <div class="footer-items">
+        <%= link_to user_path(current_user.id) do %>
+          <%= cl_image_tag current_user.image.key, class: "avatar" %>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="footer-items">
+        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+      </div>
+      <% end %>
+  </div>
+</div>

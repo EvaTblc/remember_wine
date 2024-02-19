@@ -1,13 +1,15 @@
-<h1>test</h1>
+<div class= "container">
+  <h1>Ajouter un nouveau vin</h1>
 
-<%= simple_form_for @wine do |f| %>
-  <%= f.input :name, label: "Nom" %>
-  <%= f.input :year, min: "1900", max: "2024", label: "Année" %>
-  <%= f.input :color, collection:["Rouge", "Blanc", "Rosé"] %>
-  <%= f.input :come_from %>
-  <%= f.input :vignoble, label: "Vignoble" %>
-  <%= f.input :description %>
-  <%= f.input :price, label: "Prix" %>
-  <%= f.input :image, as: :file %>
-  <%= f.submit "Ajouter", class: "btn-flat"%>
-<% end %>
+  <%= simple_form_for @wine do |f| %>
+    <%= f.input :name, label: "Nom" %>
+    <%= f.input :year, input_html: { min: '1900', max: Date.today.year.to_s }, label: 'Année' %>
+    <%= f.input :color, collection:["Rouge", "Blanc", "Rosé"] %>
+    <%= f.input :come_from, label: "Qui me l'a offert ? Où je l'ai acheté" %>
+    <%= f.input :vignoble, label: "Vignoble" %>
+    <%= f.input :description %>
+    <%= f.input :price, label: "Prix" %>
+    <%= f.input :image, as: :file %>
+    <%= f.submit "Ajouter", class: "btn-flat"%>
+  <% end %>
+</div>
